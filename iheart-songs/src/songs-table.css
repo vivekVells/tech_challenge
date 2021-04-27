@@ -1,3 +1,8 @@
+.songs-table {
+  display: grid;
+  justify-content: center;
+}
+
 .table-container {
   display: grid;
   width: 100vw;
@@ -15,9 +20,19 @@ li {
   list-style: none;
 }
 
+.attribute.attribute-header {
+  background: lightgray;
+  cursor: default;
+}
+
 .attribute {
   border-right: 1px solid gray;
   border-bottom: 1px solid gray;
+  line-height: 2;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  width: 10vw;
 }
 
 * {

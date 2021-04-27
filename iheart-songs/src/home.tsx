@@ -1,15 +1,15 @@
 import React from "react";
 import SongsTable from "./songs-table";
+import './home.css';
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <div className="home">
       <header>
-        <h1>HOME</h1>
+        <h1>Welcome to iHeart💖 Songs Dashboard</h1>
       </header>
-      <section>
-        <SongsTable />
-      </section>
+
+      <SongsTable />
     </div>
   );
 };

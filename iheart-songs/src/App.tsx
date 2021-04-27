@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Home from "./home";
-import SongDetail from "./song_detail";
+import SongDetail from "./song-detail";
 import { Router, Switch, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 

@@ -1,0 +1,43 @@
+.song-detail {
+  display: grid;
+  justify-content: center;
+}
+
+.song-detail header {
+  margin-top: 100px;
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.album-poster-banner {
+  display: grid;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.album-poster-summary {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  max-width: 700px;
+}
+
+.album-description p {
+  padding-top: 15px;
+}
+
+.footer {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin-top: 100px;
+}
+
+.primary-btn {
+  line-height: 2;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100px;
+}
