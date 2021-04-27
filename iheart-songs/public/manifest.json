@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "iHeart Web App Dashboard",
+  "name": "iHeart Songs Web App to view songs data in the dashboard",
   "icons": [
     {
       "src": "favicon.ico",

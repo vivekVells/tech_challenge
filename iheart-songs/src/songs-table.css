@@ -1,0 +1,27 @@
+.table-container {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+}
+
+.item-container {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  grid-auto-flow: column;
+}
+
+/* remove ordered list item numbers */
+li {
+  list-style: none;
+}
+
+.attribute {
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
