@@ -1,12 +1,20 @@
 import React from "react";
 import "./App.css";
-import SongsTable from "./songs-table";
+import Home from "./home";
+import SongDetail from "./song-detail";
+import { Router, Switch, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
 
 const App: React.FC = () => {
+  const browserHistory = createBrowserHistory();
+
   return (
-    <div>
-      <SongsTable />
-    </div>
+    <Router history={browserHistory}>
+      <Switch>
+        <Route path="/song" component={SongDetail} />
+        <Route path="/" component={Home} />
+      </Switch>
+    </Router>
   );
 };
 

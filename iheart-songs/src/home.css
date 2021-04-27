@@ -1,0 +1,10 @@
+.home {
+    display: grid;
+    justify-content: center;
+}
+
+.home header {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 70px;
+}

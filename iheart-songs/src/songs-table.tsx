@@ -1,40 +1,40 @@
-import React from "react";
+import React, { useMemo } from "react";
 import "./songs-table.css";
 import useSongs from "./hooks/use-songs";
+import { useHistory } from "react-router";
 
 const SongsTable: React.FC = () => {
   const [loading, _, songs] = useSongs();
+  
+  // to generate metrics header value from 'Metrics A' to 'Metrics P'
+  const metricsHeader = useMemo(() => {
+    let charCount = 65;
+
+    return Array(16)
+      .fill("")
+      .map(() => `Metrics ${String.fromCharCode(charCount++)}`);
+  }, []);
+
   const tableHeaders = [
     "Artist",
     "Song Name",
     "Play Count",
     "Release Date",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
-    "Metrics A",
+    ...metricsHeader,
   ];
 
+  console.log({ ge: metricsHeader });
+
   const Table: React.FC = () => {
+    const history = useHistory();
+
     return (
-      <section>
+      <section className="songs-table">
         <ol role="table" className="table-container">
           <li className="item item-container">
             {tableHeaders.map((header) => (
               <div
-                className="attribute"
+                className="attribute attribute-header"
                 data-name={header}
                 onClick={() => {
                   console.log("clicked", header);
@@ -45,21 +45,13 @@ const SongsTable: React.FC = () => {
             ))}
           </li>
 
-          {/* @todo: entire songs data  */}
-          {/* {songs?.map((songData, index, songs) => {
-            return (
-              <li className="item item-container">
-                <>
-                  <div className="attribute" data-name={songData.artist} key={index}>
-                    {songData.artist}
-                  </div>
-                </>
-              </li>
-            );
-          })} */}
-
-          {songs?.slice(0, 10)?.map((songData, index, songs) => (
-            <li className="item item-container">
+          {songs?.map(songData => (
+            <li
+              className="item item-container"
+              onClick={() => {
+                history.push("/song", { songData });
+              }}
+            >
               <div className="attribute" data-name={songData.artist}>
                 {songData.artist}
               </div>
