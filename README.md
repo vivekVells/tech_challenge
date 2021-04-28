@@ -53,14 +53,13 @@ A landing page, and a page to show data coming from an API.
 - user can sort the column headers ascending or descending order
 - handled routing between two pages using react-router-dom and shared the data among the components via `useLocation`
 - avoiding using any unnecessary packages
-
 ### Tech stack: 
 - AWS Amplify, ReactJS, TypeScript, HTML, CSS, GraphQL, AppSync
-### Few Notables
+### Note
 - followed Agile & SDLC process
 - mocked few data and UI components wherever necessary
 - used AWS Amplify to readily deploy the code after completion
-
 #### Pending Features
 - create CI/CD pipeline - whenever making changes to songData.json file, the trigger should happen automatically to upload the file to S3 bucket
-## Demo
+### Demo
+
