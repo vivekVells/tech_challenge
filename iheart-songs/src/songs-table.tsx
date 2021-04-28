@@ -14,7 +14,7 @@ const SongsTable: React.FC = () => {
   const DOWN_ARROW = "🔽";
   const columnHeaderSongMap = {
     "Song Name": "song",
-    Artist: "artist",
+    "Artist": "artist",
     "Release Date": "songReleaseDate",
     "Play Count": "playCount",
     "Metrics A": "metricA",
