@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "repo-mgr-s3"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-o88mk7ve18w2"
+s3_prefix = "repo-mgr-s3"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "AppBucketName=\"repo-mgr\""
