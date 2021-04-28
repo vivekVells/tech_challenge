@@ -22,7 +22,7 @@ li {
 
 .attribute.attribute-header {
   background: lightgray;
-  cursor: default;
+  font-weight: 600;
 }
 
 .attribute {
