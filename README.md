@@ -62,4 +62,5 @@ A landing page, and a page to show data coming from an API.
 #### Pending Features
 - create CI/CD pipeline - whenever making changes to songData.json file, the trigger should happen automatically to upload the file to S3 bucket
 ### Demo
-
+#### Preview 
+![](https://github.com/vivekVells/tech_challenge/blob/master/demo/demo%20v1%20-%20apr-27-2021.gif)
