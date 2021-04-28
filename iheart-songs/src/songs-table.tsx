@@ -3,11 +3,12 @@ import "./songs-table.css";
 import useSongs from "./hooks/use-songs";
 import { useHistory } from "react-router";
 import { Song } from "./API";
+import loadingGif from "./assets/images/loading.gif";
 
 const SongsTable: React.FC = () => {
   const [loading, _, songs] = useSongs();
   const [songsData, setSongsData] = useState<Song[]>(songs || []);
-  const [sortAscending, setSortAscending] = useState<boolean>(true);
+  const [isAscending, setIsAscending] = useState<boolean>(true);
   const [sortedColumnHeader, setSortedColumnHeader] = useState("");
   const UP_ARROW = "🔼";
   const DOWN_ARROW = "🔽";
@@ -54,6 +55,7 @@ const SongsTable: React.FC = () => {
     songs && setSongsData(songs);
   }, [songs]);
 
+  // function to handle sorting over all the column headers
   const handleSorting = (columnName: string, orderType: boolean) => {
     return [...songsData].sort((songAData, songBData) => {
       // @ts-ignore
@@ -63,25 +65,20 @@ const SongsTable: React.FC = () => {
 
       // @ts-ignore
       if (columnAValue && columnBValue) {
+        // to handle date column
         if (columnName === "songReleaseDate") {
           const dates = [new Date(columnAValue), new Date(columnBValue)];
 
-          if (orderType) {
-            // @ts-ignore
-            return dates[0] - dates[1];
-          } else {
-            // @ts-ignore
-            return dates[1] - dates[0];
-          }
+          // @ts-ignore
+          if (orderType) return dates[0] - dates[1];
+          // @ts-ignore
+          else return dates[1] - dates[0];
         }
 
-        if (orderType) {
-          // @ts-ignore
-          return columnAValue < columnBValue ? -1 : 1;
-        } else {
-          // @ts-ignore
-          return columnAValue > columnBValue ? -1 : 1;
-        }
+        // @ts-ignore
+        if (orderType) return columnAValue < columnBValue ? -1 : 1;
+        // @ts-ignore
+        else return columnAValue > columnBValue ? -1 : 1;
       }
 
       return 0;
@@ -104,22 +101,20 @@ const SongsTable: React.FC = () => {
                   const sortedSongsData = handleSorting(
                     // @ts-ignore
                     columnHeaderSongMap[header],
-                    sortAscending
+                    isAscending
                   );
 
                   setSongsData(sortedSongsData);
-                  setSortAscending(!sortAscending);
+                  setIsAscending(!isAscending);
                   setSortedColumnHeader(header);
                 }}
               >
                 <span>{header}</span>
                 <span>
-                  {sortedColumnHeader === header && sortAscending && UP_ARROW}
+                  {sortedColumnHeader === header && isAscending && UP_ARROW}
                 </span>
                 <span>
-                  {sortedColumnHeader === header &&
-                    !sortAscending &&
-                    DOWN_ARROW}
+                  {sortedColumnHeader === header && !isAscending && DOWN_ARROW}
                 </span>
               </div>
             ))}
@@ -201,9 +196,8 @@ const SongsTable: React.FC = () => {
 
   return (
     <>
-      {/* @todo: replace this text with loader */}
-      {loading && <p>Loading Table... Please wait...</p>}
-
+      {loading && <img src={loadingGif} alt="Loading... Please wait..." />}
+      
       {!loading && <Table />}
     </>
   );
