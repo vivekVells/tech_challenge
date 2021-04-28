@@ -1,0 +1,18 @@
+{
+  "name": "replaced-by-user-input",
+  "description": "replaced-by-user-input",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@octokit/core": "^3.4.0",
+    "aws-sdk": "^2.891.0",
+    "node-nc": "0.10.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "aws-sdk-mock": "^5.1.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
